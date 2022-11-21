@@ -121,22 +121,22 @@ public class TankMode extends OpMode {
 			clawPosition++;
 			if (clawPosition == 1) {
 				robot.extender.setTargetPosition(171); // temp
-				robot.extender.setVelocity(150); // temp
+				robot.extender.setVelocity(250); // temp
 				buttonPress = true;
 			}
 			else if (clawPosition == 2) { // temp
-				robot.extender.setTargetPosition(1480); // temp
-				robot.extender.setVelocity(150); // temp
+				robot.extender.setTargetPosition(1230); // temp
+				robot.extender.setVelocity(250); // temp
 				buttonPress = true;
 			}
 			else if (clawPosition == 3) { // temp
-				robot.extender.setTargetPosition(2617); // temp
-				robot.extender.setVelocity(150); // temp
+				robot.extender.setTargetPosition(2117); // temp
+				robot.extender.setVelocity(250); // temp
 				buttonPress = true;
 			}
 			else if (clawPosition == 4) { // temp
-				robot.extender.setTargetPosition(400); // temp
-				robot.extender.setVelocity(150); // temp
+				robot.extender.setTargetPosition(2906); // temp
+				robot.extender.setVelocity(250); // temp
 				buttonPress = true;
 			}
 		}
@@ -146,25 +146,39 @@ public class TankMode extends OpMode {
 			buttonPress == false && clawPosition > 0) {
 			clawPosition--;
 			if (clawPosition == 0) {
-				robot.extender.setTargetPosition(0); // temp
-				robot.extender.setVelocity(150); // temp
+				robot.extender.setTargetPosition(15); // temp
+				robot.extender.setVelocity(400); // temp
 				buttonPress = true;
 			}
 			else if (clawPosition == 1) { // temp
 				robot.extender.setTargetPosition(171); // temp
-				robot.extender.setVelocity(150); // temp
+				robot.extender.setVelocity(400); // temp
 				buttonPress = true;
 			}
 			else if (clawPosition == 2) { // temp
-				robot.extender.setTargetPosition(1480); // temp
-				robot.extender.setVelocity(150); // temp
+				robot.extender.setTargetPosition(1230); // temp
+				robot.extender.setVelocity(400); // temp
 				buttonPress = true;
 			}
 			else if (clawPosition == 3) { // temp
-				robot.extender.setTargetPosition(2617); // temp
-				robot.extender.setVelocity(150); // temp
+				robot.extender.setTargetPosition(2117); // temp
+				robot.extender.setVelocity(400); // temp
 				buttonPress = true;
 			}
+			
+		}
+		
+		// Right trigger manually adjusts the claw up
+		else if (gamepad1.right_trigger > 0.5) {
+			robot.extender.setTargetPosition(robot.extender.getCurrentPosition() + 50);
+			robot.extender.setVelocity(400);
+		}
+		
+		
+		// Left trigger manually adjusts the claw up
+		else if (gamepad1.left_trigger > 0.5) {
+			robot.extender.setTargetPosition(robot.extender.getCurrentPosition() - 50);
+			robot.extender.setVelocity(400);
 		}
 		
 		else if (gamepad1.dpad_up || gamepad2.dpad_up || gamepad1.dpad_down || gamepad2.dpad_down) {
@@ -173,8 +187,8 @@ public class TankMode extends OpMode {
 		
 		// D-pad left opens claw
 		else if (gamepad1.dpad_left || gamepad2.dpad_left) {
-			robot.servo1.setPosition(0.3); // temp
-			robot.servo2.setPosition(0.2); // temp
+			robot.servo1.setPosition(0.2); // temp
+			robot.servo2.setPosition(0.3); // temp
 		}
 		
 		// D-pad right closes claw
@@ -191,6 +205,7 @@ public class TankMode extends OpMode {
 			robot.rightFrontDrive.setPower(0);
 			robot.rightBackDrive.setPower(0);
 		}
+		telemetry.addData("Current height: " + clawPosition, "Current ticks: " + robot.extender.getCurrentPosition());
 	}
 	
 	// Code that runs once the driver hits STOP
