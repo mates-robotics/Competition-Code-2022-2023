@@ -11,7 +11,7 @@
 ## Tank Mode
 
 1. Imports all necessary packages.
-2. When Tank-Mode is initiated, the power of all motors are set to 0.
+2. When Tank Mode is initiated, the power of all motors are set to 0.
 3. Pressing y, b, and a on the controller correlate to high, medium, and low speed settings respectively. Code defaults to medium speed. When high is selected, it divides the velocity derived from the controller sticks by 1. When medium is selected, it divides the velocity by 2, and when slow is selected, it divides the velocity by 4.
 4. Pressing the left and right bumper makes the robot strafe in the respective direction. When strafing, adjacent wheels go in opposite directions. The velocity while strafing is divided by the same constants used in driving, times 1.5.
 5. Pressing up and down on the d-pad makes the claw move one increment upwards or downwards, respectivly. The increments correspond to the ground, the ground junction, the low junction, the medium junction, and the high junction. To make finer adjustments to the claw's height the left and right triggers are used.
