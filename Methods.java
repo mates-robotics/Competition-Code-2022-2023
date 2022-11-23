@@ -156,31 +156,31 @@ public class Methods {
 		// Set the target position depending on the method input
 		switch(targetPosition) {
 			case 0: // Floor
-				extender.setTargetPosition(0); //temp
+				extender.setTargetPosition(0);
 				break;
 			case 1: // Ground terminal
-				extender.setTargetPosition(171); // 1.5 in*2.54 cm*537.7 ticks/12.0 cm, temp
+				extender.setTargetPosition(171);
 				break;
 			case 2: // Low terminal
-				extender.setTargetPosition(1480); // 13 in*2.54 cm*537.7 ticks/12.0 cm, temp
+				extender.setTargetPosition(1230);
 				break;
 			case 3: // Medium terminal
-				extender.setTargetPosition(2617); // 23 in*2.54 cm*537.7 ticks/12.0 cm, temp
+				extender.setTargetPosition(2117);
 				break;
 			case 4: // High terminal
-				extender.setTargetPosition(3756); // 33 in*2.54 cm*537.7 ticks/12.0 cm, temp
+				extender.setTargetPosition(2906);
 				break;
 		}
 		
 		while(extender.getTargetPosition() != extender.getCurrentPosition()) {
-					extender.setVelocity(150); //temp
+					extender.setVelocity(250);
 		}
 	}
 	
 	public void claw(boolean open) {
 		if(open) {
-			servo1.setPosition(0.3);
-			servo2.setPosition(0.2);
+			servo1.setPosition(0.2);
+			servo2.setPosition(0.3);
 		} else {
 			servo1.setPosition(0.0);
 			servo2.setPosition(0.5);
