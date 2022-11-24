@@ -31,9 +31,9 @@ public class AutoBlueRight extends LinearOpMode {
 		methods.drive(31, 537);
 		methods.extend(4);
 		methods.drive(2, 537);
-		methods.extend(true, -1074);
+		methods.extend(true, -200);
 		methods.claw(true);
-		methods.extend(true, 1074);
+		methods.extend(true, 200);
 		methods.drive(-33, 537);
 		methods.strafe(63, 537);
 		methods.extend(0);
