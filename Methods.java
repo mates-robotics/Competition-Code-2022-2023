@@ -166,7 +166,7 @@ public class Methods {
 		// set the extender to use encoders
 		extender.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 		
-		extender.setTargetPosition(targetPosition);
+		extender.setTargetPosition(extender.getCurrentPosition() + targetPosition);
 		
 		while(extender.getTargetPosition() != extender.getCurrentPosition()) {
 			extender.setVelocity(400);
