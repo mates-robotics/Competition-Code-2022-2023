@@ -15,8 +15,6 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
 
 public class AutoBlueRight extends LinearOpMode {
 
-	//Left side of robot is lined up with line right of shipping hub.
-	
 	RobotMap robot = new RobotMap();
 	// Establishes the "runtime" object from the "ElapsedTime" class
 	private ElapsedTime runtime = new ElapsedTime();
@@ -31,17 +29,18 @@ public class AutoBlueRight extends LinearOpMode {
 		
 		methods.strafe(-33, 537);
 		methods.drive(31, 537);
-		// methods.extend(4, 537);
+		methods.extend(4);
 		methods.drive(2, 537);
-		// methods.claw(true);
+		methods.extend(true, -1074);
+		methods.claw(true);
+		methods.extend(true, 1074);
 		methods.drive(-33, 537);
 		methods.strafe(63, 537);
-		// methods.extend(0, 537);
+		methods.extend(0);
 		
 		robot.leftFrontDrive.setPower(0);
 		robot.leftBackDrive.setPower(0);
 		robot.rightFrontDrive.setPower(0);
 		robot.rightBackDrive.setPower(0);
 	}
-	
 }
