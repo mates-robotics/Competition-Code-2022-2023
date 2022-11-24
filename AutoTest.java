@@ -17,12 +17,8 @@ public class AutoTest extends LinearOpMode{
 	
 	RobotMap robot = new RobotMap();
 	
-	//Right side of robot starts on third line from start
 	// Establishes the "runtime" object from the "ElapsedTime" class
 	private ElapsedTime runtime = new ElapsedTime();
-	
-	
-	
 	
 	@Override
 	public void runOpMode() {
@@ -78,8 +74,3 @@ public class AutoTest extends LinearOpMode{
 			
 	}
 }
- 
- 
- 
- 
- 
