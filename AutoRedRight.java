@@ -14,7 +14,7 @@ import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 
 @Autonomous(name = "AutoRedRight")
-public class AutoRedRight extends LinearOpMode{ //robot starts with left side on line under freight area
+public class AutoRedRight extends LinearOpMode{
 	
 	RobotMap robot = new RobotMap();
 	// Establishes the "runtime" object from the "ElapsedTime" class
@@ -30,11 +30,13 @@ public class AutoRedRight extends LinearOpMode{ //robot starts with left side on
 		
 		methods.strafe(-33, 537);
 		methods.drive(31, 537);
-		// methods.extend(4, 537);
+		methods.extend(4);
 		methods.drive(2, 537);
-		// methods.claw(true);
+		methods.extend(true, -1074);
+		methods.claw(true);
+		methods.extend(true, 1074);
 		methods.drive(-33, 537);
-		// methods.extend(0, 537);
+		methods.extend(0);
 		
 		robot.leftFrontDrive.setPower(0);
 		robot.leftBackDrive.setPower(0);
