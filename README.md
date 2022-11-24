@@ -37,7 +37,7 @@
 6. Raising Method:
    * Takes an input of a number (0, 1, 2, 3, or 4) and a speed. These  numbers correspond to the ground, the ground junction, the low junction, the medium junction, and the high junction.
    * Using the encoder the robot then moves the claw to the specified position at the specified speed.
-   * (In progress) Using overloaded methods, if the raising method is also given an input of a boolean, the first number in the method will correspond to a specific number of ticks to move to allow for precise changes. The second number will still be a speed.
+   * Using overloaded methods, if the raising method is also given an input of a boolean, the first number in the method will correspond to a specific number of ticks to move to allow for precise changes. The second number will still be a speed.
 
 ## Autonomous
 
