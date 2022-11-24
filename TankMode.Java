@@ -38,9 +38,9 @@ public class TankMode extends OpMode {
 		robot.leftBackDrive.setPower(0);
 		robot.rightFrontDrive.setPower(0);
 		robot.rightBackDrive.setPower(0);
-		// robot.extender.setVelocity(0);
-		// robot.servo1.setPosition(0); // temp
-		// robot.servo2.setPosition(0); // temp
+		robot.extender.setVelocity(0);
+		robot.servo1.setPosition(0);
+		robot.servo2.setPosition(0.5);
 	}
 	
 	// Code that runs when the driver hits PLAY
@@ -51,9 +51,9 @@ public class TankMode extends OpMode {
 		robot.leftBackDrive.setPower(0);
 		robot.rightFrontDrive.setPower(0);
 		robot.rightBackDrive.setPower(0);
-		// robot.extender.setVelocity(0);
-		// robot.servo1.setPosition(0); // temp
-		// robot.servo2.setPosition(0); // temp
+		robot.extender.setVelocity(0);
+		robot.servo1.setPosition(0);
+		robot.servo2.setPosition(0.5);
 	}
 	
 	// Ensures the up and down button inputs happen only once when pushed
@@ -71,15 +71,15 @@ public class TankMode extends OpMode {
 	public void loop() {
 		//if y is pressed on controller, it selects the high speed setting
 		if (gamepad1.y) { 
-			speedSelected = 1; // temp
+			speedSelected = 1;
 		}
 		//if b is pressed on controller, it selects the h speed setting
 		else if (gamepad1.b) {
-			speedSelected = 2; // temp
+			speedSelected = 2;
 		}
 		//if a is pressed on controller, it selects the low speed setting
 		else if (gamepad1.a) {
-			speedSelected = 4; // temp
+			speedSelected = 4;
 		}
 		
 		// Left stick and right stick make robot drive
@@ -120,23 +120,23 @@ public class TankMode extends OpMode {
 			&& buttonPress == false && clawPosition < 4) {
 			clawPosition++;
 			if (clawPosition == 1) {
-				robot.extender.setTargetPosition(171); // temp
-				robot.extender.setVelocity(250); // temp
+				robot.extender.setTargetPosition(171);
+				robot.extender.setVelocity(400);
 				buttonPress = true;
 			}
-			else if (clawPosition == 2) { // temp
-				robot.extender.setTargetPosition(1230); // temp
-				robot.extender.setVelocity(250); // temp
+			else if (clawPosition == 2) {
+				robot.extender.setTargetPosition(1230);
+				robot.extender.setVelocity(400);
 				buttonPress = true;
 			}
-			else if (clawPosition == 3) { // temp
-				robot.extender.setTargetPosition(2117); // temp
-				robot.extender.setVelocity(250); // temp
+			else if (clawPosition == 3) {
+				robot.extender.setTargetPosition(2117);
+				robot.extender.setVelocity(400);
 				buttonPress = true;
 			}
-			else if (clawPosition == 4) { // temp
-				robot.extender.setTargetPosition(2906); // temp
-				robot.extender.setVelocity(250); // temp
+			else if (clawPosition == 4) {
+				robot.extender.setTargetPosition(2906);
+				robot.extender.setVelocity(400);
 				buttonPress = true;
 			}
 		}
@@ -146,23 +146,23 @@ public class TankMode extends OpMode {
 			buttonPress == false && clawPosition > 0) {
 			clawPosition--;
 			if (clawPosition == 0) {
-				robot.extender.setTargetPosition(15); // temp
-				robot.extender.setVelocity(400); // temp
+				robot.extender.setTargetPosition(15);
+				robot.extender.setVelocity(400);
 				buttonPress = true;
 			}
-			else if (clawPosition == 1) { // temp
-				robot.extender.setTargetPosition(171); // temp
-				robot.extender.setVelocity(400); // temp
+			else if (clawPosition == 1) {
+				robot.extender.setTargetPosition(171);
+				robot.extender.setVelocity(400);
 				buttonPress = true;
 			}
-			else if (clawPosition == 2) { // temp
-				robot.extender.setTargetPosition(1230); // temp
-				robot.extender.setVelocity(400); // temp
+			else if (clawPosition == 2) {
+				robot.extender.setTargetPosition(1230);
+				robot.extender.setVelocity(400);
 				buttonPress = true;
 			}
-			else if (clawPosition == 3) { // temp
-				robot.extender.setTargetPosition(2117); // temp
-				robot.extender.setVelocity(400); // temp
+			else if (clawPosition == 3) {
+				robot.extender.setTargetPosition(2117);
+				robot.extender.setVelocity(400);
 				buttonPress = true;
 			}
 			
@@ -187,14 +187,14 @@ public class TankMode extends OpMode {
 		
 		// D-pad left opens claw
 		else if (gamepad1.dpad_left || gamepad2.dpad_left) {
-			robot.servo1.setPosition(0.2); // temp
-			robot.servo2.setPosition(0.3); // temp
+			robot.servo1.setPosition(0.2);
+			robot.servo2.setPosition(0.3);
 		}
 		
 		// D-pad right closes claw
 		else if (gamepad1.dpad_right || gamepad2.dpad_right) {
-			robot.servo1.setPosition(0.0); // temp
-			robot.servo2.setPosition(0.5); // temp
+			robot.servo1.setPosition(0.0);
+			robot.servo2.setPosition(0.5);
 		}
 		
 		// Keeps motors off when nothing is pressed
@@ -212,16 +212,18 @@ public class TankMode extends OpMode {
 	@Override
 	public void stop() {
 		// Ensures the power is off on all the motors and the servos are closed
-		// robot.extender.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-		// robot.extender.setTargetPosition(0);
-		// robot.extender.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
+		robot.extender.setTargetPosition(0);
+		robot.extender.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
+		while(robot.extender.getTargetPosition() != robot.extender.getCurrentPosition()) {
+			robot.extender.setVelocity(400);
+		}
 		robot.leftFrontDrive.setPower(0);
 		robot.leftBackDrive.setPower(0);
 		robot.rightFrontDrive.setPower(0);
 		robot.rightBackDrive.setPower(0);
-		// robot.extender.setVelocity(0);
-		// robot.servo1.setPosition(0); // temp
-		// robot.servo2.setPosition(0); // temp
+		robot.extender.setVelocity(0);
+		robot.servo1.setPosition(0);
+		robot.servo2.setPosition(0.5);
 	}
 	
 }
