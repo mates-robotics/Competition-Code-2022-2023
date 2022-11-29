@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.robot.Robot;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
@@ -11,13 +12,13 @@ import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.TouchSensor;
-@Autonomous
 
-public class AutoBlueRight extends LinearOpMode {
+@Autonomous(name = "AutoBlueRight")
 
-	//Left side of robot is lined up with line right of shipping hub.
-	
+public class AutoBlueRight extends LinearOpMode{
+
 	RobotMap robot = new RobotMap();
+	
 	// Establishes the "runtime" object from the "ElapsedTime" class
 	private ElapsedTime runtime = new ElapsedTime();
 	
@@ -28,24 +29,20 @@ public class AutoBlueRight extends LinearOpMode {
 		Methods methods = new Methods(robot);
 		// Wait for driver to hit PLAY
 		waitForStart();
-		//drive to high junction
-		methods.drive(12, 537);
-		methods.strafe(6, 537);
-		//place cone on high junction
-		// methods.claw(4);
-		//park in terminal
-		methods.strafe(-30, 537);
-		methods.drive(-12, 537);
-		//strafes into alliance terminal (from start)
-	//	methods.strafe(24);
-		runtime.reset();
 		
-		
+		methods.strafe(-33, 537);
+		methods.drive(31, 537);
+		methods.extend(4);
+		methods.drive(2, 537);
+		methods.extend_precise(-200);
+		methods.claw(true);
+		methods.drive(-33, 537);
+		methods.strafe(63, 537);
+		methods.extend(0);
 		
 		robot.leftFrontDrive.setPower(0);
 		robot.leftBackDrive.setPower(0);
 		robot.rightFrontDrive.setPower(0);
 		robot.rightBackDrive.setPower(0);
 	}
-	
 }
