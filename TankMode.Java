@@ -13,6 +13,7 @@ import com.qualcomm.robotcore.util.Range;
 // Initializes the class
 @TeleOp(name="Tank Mode")
 public class TankMode extends OpMode {
+	int armSpeed = 600;
 	
 	/// Establishes the "robot" object from the "RobotMap" class
 	RobotMap robot = new RobotMap();
@@ -121,22 +122,22 @@ public class TankMode extends OpMode {
 			clawPosition++;
 			if (clawPosition == 1) {
 				robot.extender.setTargetPosition(171);
-				robot.extender.setVelocity(400);
+				robot.extender.setVelocity(armSpeed);
 				buttonPress = true;
 			}
 			else if (clawPosition == 2) {
 				robot.extender.setTargetPosition(1230);
-				robot.extender.setVelocity(400);
+				robot.extender.setVelocity(armSpeed);
 				buttonPress = true;
 			}
 			else if (clawPosition == 3) {
 				robot.extender.setTargetPosition(2117);
-				robot.extender.setVelocity(400);
+				robot.extender.setVelocity(armSpeed);
 				buttonPress = true;
 			}
 			else if (clawPosition == 4) {
 				robot.extender.setTargetPosition(2906);
-				robot.extender.setVelocity(400);
+				robot.extender.setVelocity(armSpeed);
 				buttonPress = true;
 			}
 		}
@@ -147,22 +148,22 @@ public class TankMode extends OpMode {
 			clawPosition--;
 			if (clawPosition == 0) {
 				robot.extender.setTargetPosition(15);
-				robot.extender.setVelocity(400);
+				robot.extender.setVelocity(armSpeed);
 				buttonPress = true;
 			}
 			else if (clawPosition == 1) {
 				robot.extender.setTargetPosition(171);
-				robot.extender.setVelocity(400);
+				robot.extender.setVelocity(armSpeed);
 				buttonPress = true;
 			}
 			else if (clawPosition == 2) {
 				robot.extender.setTargetPosition(1230);
-				robot.extender.setVelocity(400);
+				robot.extender.setVelocity(armSpeed);
 				buttonPress = true;
 			}
 			else if (clawPosition == 3) {
 				robot.extender.setTargetPosition(2117);
-				robot.extender.setVelocity(400);
+				robot.extender.setVelocity(armSpeed);
 				buttonPress = true;
 			}
 			
@@ -171,14 +172,14 @@ public class TankMode extends OpMode {
 		// Right trigger manually adjusts the claw up
 		else if (gamepad1.right_trigger > 0.5) {
 			robot.extender.setTargetPosition(robot.extender.getCurrentPosition() + 50);
-			robot.extender.setVelocity(400);
+			robot.extender.setVelocity(armSpeed);
 		}
 		
 		
 		// Left trigger manually adjusts the claw up
 		else if (gamepad1.left_trigger > 0.5) {
 			robot.extender.setTargetPosition(robot.extender.getCurrentPosition() - 50);
-			robot.extender.setVelocity(400);
+			robot.extender.setVelocity(armSpeed);
 		}
 		
 		else if (gamepad1.dpad_up || gamepad2.dpad_up || gamepad1.dpad_down || gamepad2.dpad_down) {
@@ -215,7 +216,7 @@ public class TankMode extends OpMode {
 		robot.extender.setTargetPosition(0);
 		robot.extender.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
 		while(robot.extender.getTargetPosition() != robot.extender.getCurrentPosition()) {
-			robot.extender.setVelocity(400);
+			robot.extender.setVelocity(armSpeed);
 		}
 		robot.leftFrontDrive.setPower(0);
 		robot.leftBackDrive.setPower(0);
