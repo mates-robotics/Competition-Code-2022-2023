@@ -20,17 +20,20 @@ public class AutoRedLeft extends LinearOpMode{
 		Methods methods = new Methods(robot);
 		// Wait for driver to hit PLAY
 		waitForStart();
+		//drive to high junction
+		methods.drive(12, 537);
+		methods.strafe(6, 537);
+		//place cone on high junction
+		// methods.claw(4);
+		//parks robot in alliance terminal
+		methods.strafe(-30, 537);
+		methods.drive(-12, 537);
 		
-		methods.strafe(33, 537);
-		methods.drive(31, 537);
-		methods.extend(4);
-		methods.drive(2, 537);
-		methods.extend(true, -200);
-		methods.claw(true);
-		methods.extend(true, 200);
-		methods.drive(-33, 537);
-		methods.strafe(-63, 537);
-		methods.extend(0);
+		//strafes into alliance terminal
+		// methods.strafe(-24);
+		runtime.reset();
+		
+		
 		
  		robot.leftFrontDrive.setPower(0);
  		robot.leftBackDrive.setPower(0);
