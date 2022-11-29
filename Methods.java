@@ -162,7 +162,7 @@ public class Methods {
 		}
 	}
 	
-	public void extend(boolean x, int targetPosition) {
+	public void extend_precise(int targetPosition) {
 		// set the extender to use encoders
 		extender.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 		
