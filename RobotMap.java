@@ -54,8 +54,8 @@ public class RobotMap {
 		leftBackDrive.setPower(0);
 		rightBackDrive.setPower(0);
 		extender.setPower(0);
-		servo1.setPosition(0);
-		servo2.setPosition(0.5);
+		servo1.setPosition(0.35);
+		servo2.setPosition(0.15);
 		
 		// Tells each motor whether to run with or without an encoder (for the encoders: 1 rotation = 1440 ticks)
 		leftFrontDrive.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);

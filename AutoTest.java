@@ -67,12 +67,10 @@ public class AutoTest extends LinearOpMode{
 			
 		// }
 		// methods.claw(false);
-		// methods.claw(false);
-		// while(runtime.seconds() < 5) {
+		methods.claw(false);
+		while(runtime.seconds() < 5) {
 			
-		// }
-		methods.strafe(100, 500);
-		
+		}
 			
 	}
 }
