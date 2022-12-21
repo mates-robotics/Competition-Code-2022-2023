@@ -30,14 +30,18 @@ public class AutoRedLeft extends LinearOpMode{
 		// Wait for driver to hit PLAY
 		waitForStart();
 		
-		methods.strafe(33, 537);
-		methods.drive(31, 537);
+		
+		methods.strafe(21, 537);
+		methods.drive(28, 537);
+		methods.strafe(15, 537);
 		methods.extend(4);
-		methods.drive(2, 537);
-		methods.extend_precise(-200);
+		methods.drive(3, 537);
+		methods.extend_precise(-400);
 		methods.claw(true);
-		methods.drive(-33, 537);
-		methods.strafe(-63, 537);
+		methods.drive(-3, 537);
+		methods.strafe(-15, 537);
+		methods.drive(-28, 537);
+		methods.strafe(-51, 537);
 		methods.extend(0);
 		
  		robot.leftFrontDrive.setPower(0);
