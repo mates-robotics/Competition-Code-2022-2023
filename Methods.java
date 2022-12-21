@@ -20,6 +20,7 @@ public class Methods {
 	
 	// Establishes the "robot" object from the "RobotMap" class
 	RobotMap robot = new RobotMap();
+	
 	// Establishes the "runtime" object from the "ElapsedTime" class
 	private ElapsedTime runtime = new ElapsedTime();
 	
@@ -41,7 +42,7 @@ public class Methods {
 		servo2 = robot.servo2;
 	}
 	
-	public void turn(int degrees, int speed){
+	public void turn(int degrees, int speed) {
 		
 		leftBackDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
 		rightBackDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
@@ -50,7 +51,7 @@ public class Methods {
 		
 		// tell the robot where we are driving to
 		// target position is in Ticks
-		double targetPosition = (degrees * 2.54) * (537.7 / 114.608);
+		double targetPosition = (degrees * 2.54) * (537.7 / 114);
 		if (degrees > 0) {
 			leftBackDrive.setTargetPosition(-(int)(targetPosition)); 
 			rightBackDrive.setTargetPosition((int)(targetPosition)); 
@@ -77,25 +78,24 @@ public class Methods {
 		rightBackDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
 		
 		// use getCurrentPosition method to keep robot at the velocity while it isn't at the location
-		while (leftFrontDrive.getCurrentPosition() != targetPosition){
+		while (Math.abs(leftFrontDrive.getCurrentPosition() - leftFrontDrive.getTargetPosition()) >= 5){
 		// Sets speed of wheels
 			leftFrontDrive.setVelocity(speed);
 			rightFrontDrive.setVelocity(speed);
 			leftBackDrive.setVelocity(speed);
 			rightBackDrive.setVelocity(speed);
+			
 		}
 		// set velocity to 0 when it reaches location
 		leftFrontDrive.setVelocity(0);
 		rightFrontDrive.setVelocity(0);
 		leftBackDrive.setVelocity(0);
 		rightBackDrive.setVelocity(0);
-		
 	}
 	
 	// method that will be used to move the robot however much we need
 	// Distance is in inches
 	public void drive(int distance, int speed) {
-		
 		leftBackDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
 		rightBackDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
 		leftFrontDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
@@ -103,7 +103,7 @@ public class Methods {
 		
 		// tell the robot where we are driving to
 		// target position is in Ticks
-		double targetPosition = (distance * 2.54) * (537.7 / 30.16);
+		double targetPosition = (distance * 2.54) * (537.7 / 30.69);
 		leftBackDrive.setTargetPosition((int)(-targetPosition)); 
 		rightBackDrive.setTargetPosition((int)(-targetPosition)); 
 		rightFrontDrive.setTargetPosition((int)(-targetPosition));
@@ -116,18 +116,19 @@ public class Methods {
 		rightBackDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
 		
 		// use getCurrentPosition method to keep robot at the velocity while it isn't at the location
-		while (leftFrontDrive.getCurrentPosition() != targetPosition){
+		while (Math.abs(leftFrontDrive.getCurrentPosition() - leftFrontDrive.getTargetPosition()) >= 5){
 		// Sets speed of wheels
 			leftFrontDrive.setVelocity(speed);
 			rightFrontDrive.setVelocity(speed);
 			leftBackDrive.setVelocity(speed);
 			rightBackDrive.setVelocity(speed);
+
 		}
 		// set velocity to 0 when it reaches location
-		leftFrontDrive.setVelocity(0);
-		rightFrontDrive.setVelocity(0);
-		leftBackDrive.setVelocity(0);
-		rightBackDrive.setVelocity(0);
+		// leftFrontDrive.setVelocity(0);
+		// rightFrontDrive.setVelocity(0);
+		// leftBackDrive.setVelocity(0);
+		// rightBackDrive.setVelocity(0);
 	}
 		
 		
@@ -157,9 +158,10 @@ public class Methods {
 				break;
 		}
 		
-		while(extender.getTargetPosition() != extender.getCurrentPosition()) {
-			extender.setVelocity(400);
+		while(Math.abs(extender.getTargetPosition() - extender.getCurrentPosition()) >= 5) {
+			extender.setVelocity(2000);
 		}
+		
 	}
 	
 	public void extend_precise(int targetPosition) {
@@ -168,8 +170,8 @@ public class Methods {
 		
 		extender.setTargetPosition(extender.getCurrentPosition() + targetPosition);
 		
-		while(extender.getTargetPosition() != extender.getCurrentPosition()) {
-			extender.setVelocity(400);
+		while(Math.abs(extender.getTargetPosition() - extender.getCurrentPosition()) >= 5) {
+			extender.setVelocity(2000);
 		}
 	}
 	
@@ -191,7 +193,7 @@ public class Methods {
 		
 		// tell the robot where we are driving to
 		// target position is in Ticks
-		double targetPosition = (distance * 2.54) * (537.7 / 29);
+		double targetPosition = (Math.abs(distance) * 2.54) * (537.7 / 28.13);
 		if (distance > 0) {
 			leftBackDrive.setTargetPosition((int)(targetPosition)); 
 			rightBackDrive.setTargetPosition((int)(-targetPosition)); 
@@ -218,7 +220,7 @@ public class Methods {
 		rightBackDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
 		
 		// use getCurrentPosition method to keep robot at the velocity while it isn't at the location
-		while (leftFrontDrive.getCurrentPosition() != targetPosition){
+		while (Math.abs(leftFrontDrive.getCurrentPosition() - leftFrontDrive.getTargetPosition()) >= 5){
 		// Sets speed of wheels
 			leftFrontDrive.setVelocity(speed);
 			rightFrontDrive.setVelocity(speed);
