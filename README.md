@@ -41,9 +41,18 @@
 
 ## Autonomous
 
+### For Basic Autonomous
 1. Imports all necessary packages.
 2. Begins with cone in claw.
 3. Drives to nearest high junction.
 4. Places cone on junction.
 5. Drives to nearest alliance terminal to park.
 6. Resets all powers to 0.
+
+### For Auto w/ April Tag
+1. Imports all necessary packages
+2. Begins with cone in claw
+3. Robot begins with camera pointed towards signal cone
+4. Camera reads AprilTag Id on signal sleeve
+5. Robot drives to high juntion and places cone
+6. Robot parks in parking area designated by signal sleeve AprilTag
