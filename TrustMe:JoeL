@@ -1,0 +1,17 @@
+//This might work for stopping the arm from falling during manual adjustments
+
+// Right trigger manually adjusts the claw up
+else if (gamepad1.right_trigger > 0.5) {
+    robot.extender.setPower(armSpeed);
+    robot.extender.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE); // Set the motor to brake mode
+}
+
+// Left trigger manually adjusts the claw down
+else if (gamepad1.left_trigger > 0.5 ) {
+    robot.extender.setPower(-armSpeed);
+    robot.extender.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE); // Set the motor to brake mode
+}
+
+else if (gamepad1.dpad_up || gamepad2.dpad_up || gamepad1.dpad_down || gamepad2.dpad_down) {
+    robot.extender.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT); // Set the motor to float mode when not in use
+}
